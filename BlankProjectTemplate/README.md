@@ -1,4 +1,4 @@
-# Project Name
+# QChat - QuestionChat
 
 Team Name: QChat
 
