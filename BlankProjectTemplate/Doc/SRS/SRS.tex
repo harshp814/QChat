@@ -3,6 +3,8 @@
 \usepackage{booktabs}
 \usepackage{tabularx}
 \usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{float}
 \hypersetup{
     colorlinks,
     citecolor=black,
@@ -12,17 +14,17 @@
 }
 \usepackage[round]{natbib}
 
-\title{SE 3XA3: Software Requirements Specification\\Title of Project}
+\title{SE 3XA3: Software Requirements Specification\\QChat - QuestionChat}
 
-\author{Team \#, Team Name
-		\\ Student 1 name and macid
-		\\ Student 2 name and macid
-		\\ Student 3 name and macid
+\author{Team \#14, QChat
+		\\ Adit Patel - patela14
+		\\ Harsh Patel - patelh11
+		\\ Vrushesh Patel - patelv12
 }
 
 \date{\today}
 
-\input{../Comments}
+%\input{../Comments}
 
 \begin{document}
 
@@ -38,8 +40,7 @@
 \begin{tabularx}{\textwidth}{p{3cm}p{2cm}X}
 \toprule {\bf Date} & {\bf Version} & {\bf Notes}\\
 \midrule
-Date 1 & 1.0 & Notes\\
-Date 2 & 1.1 & Notes\\
+06/10/1997 & 1.0 & Inital Version\\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -48,46 +49,113 @@ Date 2 & 1.1 & Notes\\
 
 \pagenumbering{arabic}
 
-This document describes the requirements for ....  The template for the Software
+This document describes the requirements for QChat.  The template for the Software
 Requirements Specification (SRS) is a subset of the Volere
-template~\citep{RobertsonAndRobertson2012}.  If you make further modifications
-to the template, you should explicity state what modifications were made.
+template~\citep{RobertsonAndRobertson2012}. Our modification to the template includes combining the subsubsections of 1.2 to form one subsection that combines the client, customers, and stakeholders.
 
 \section{Project Drivers}
 
 \subsection{The Purpose of the Project}
+The purpose of our project is to allow students who are nervous to ask questions in large lecture rooms to have a voice through an anonymous platform by providing a cross platform Q and A app. The app will allow users to anonymously post questions. Users will be able to upvote questions they would like to find the answers to and the most popular questions will be showed at the top for the professor to answer.
 
 \subsection{The Stakeholders}
 
-\subsubsection{The Client}
-
-\subsubsection{The Customers}
-
-\subsubsection{Other Stakeholders}
+The clients for this project are Group 14: QChat and Asghar Bokhari. Professor Bokhari is the client who asked for a project to be done with broad requirements. Group 14: QChat is the client who decided the specific project and provided specifications for the end result. The customers are the students and the professors at McMaster University. Students and Professors will be our customers because this application will directly impact these two entities as it is a tool of communication between them. They will making the choice of using the application on their devices. As our problem is an issue that occurs in the university ecosystem, our stakeholders will be members of this ecosystem. Our stakeholders are students, professors, developers of this project, researchers interested in the outcome of this project. Students will be impacted heavily as they will move to a friendly platform to ask questions to colleagues and/or the professor. As students use this platform to interact in a new way, professors will be impacted heavily as well. Being expected to resolve questions through/from this platform may need them to reform the way they deliver lectures to allocate enough time to review and answer questions from the platform. The developers of this project are required to maintain the application and provide it new features and make it extendable. The developers will need to resolve issues that the application has and may face learning curves to do so. Researchers are also a stakeholder as the application can be potentially used to change the way lectures are delivered. A breakout in a new methodology of learning will result in validation of this method being better by means of collecting data or interviews. 
 
 \subsection{Mandated Constraints}
+\textbf{Description:}- the application should run on web browsers that allow JavaScript to run through a website hosting server.
+\\ 
+\textbf{Rationale}:- The client will not be using outdated version of web browser when trying to access our application. \\ 
+\textbf{Fit Criterion:}- Our app will run on web browser that have JavaScript enabled, if the user has it disabled, it will ask them to turn it on.\\
+\\
+\textbf{Description:}- the app will only run when connected to internet\\ 
+\textbf{Rationale}:- the user should be connected to the internet all the time in order to use our app, so that posting and fetching of questions and answer from the database can work\\ \textbf{Fit Criterion:}- the app load automatically if the user is connected to the internet, if not any web browser will give error. \\
+\\
+\textbf{Description:}- the app should resize on its own to fit on all devices with different screen sizes and orientation \\ \textbf{Rationale}:- the user can resize their browser window and the app will resize itself until it hits its boundary where it cannot get any smaller or bigger\\ 
+\textbf{Fit Criterion:}- the maximum and minimum size will be determined based on the size required by the app. \\
+\\
+The following are some other constraints have been identified for QChat: \\
+\\
+-A web-hosting server with a domain name would a partner or collaborative applications if the app gets released. 
+For the app to run some of the Off-the-Shelf software that it will use are, a web browser, JavaScript and a device like phone, computer etc. where the web browser can run. \\
+-The anticipated workspace environment for the app is anywhere, where the user has access to internet and a device that has web browser. \\
+-The product will be finished and ready to be released by December 6th, 2017. \\
+-The operating budget for our project is \$0 because all the resources need to build this project are available for free, therefore no funding is needed. \\
+The application should be available for free to all users
+
 
 \subsection{Naming Conventions and Terminology}
+It is very important to make sure that the code in any code base is clear and conforms to a standard set of rules. This allows for ease in understanding of how the code actually works and communication between different coders. Naming and formatting will be done using regular conventions we learned in 2XA3, all our variables will be named using camel notation, classes will be named with capital.\\
+\\
+\textbf{Terminology} \\
+\\
+\textbf{App/Application/QChat} - the product that is being described here; the software system specified in this document \\
+\textbf{Project} - tasks that will lead to the production of QChat or the application itself. \\
+\textbf{Client} - the person or group of people for which QChat application is being built. \\
+\textbf{User} - group of people who will be using QChat. \\
+\textbf{Developers} - the team building QChat. \\
+\textbf{Web Technologies} - the method by which computers communicate with each other. \\
+\textbf{JavaScript} - part of web technology, programming language that runs on browser. \\
+\textbf{Node.js} - server side platform built on Chrome’s JavaScript runtime, perfect for data intensive real-time applications that run across distributed devices. \\
+\textbf{Express.js} - is a web application framework for Node.js. \\
+\textbf{Firebase} - Firebase is google’s free real time database and backend service. We will be using this as our database. \\
+\textbf{Stakeholders} - any person who is going to be using the system and is not a developer.
 
 \subsection{Relevant Facts and Assumptions}
 
-User characteristics should go under assumptions.
+ - Assuming all the users have experience using at least one successful messaging platform like Facebook, Instagram, Twitter, IMessage etc. \\
+- Users will be respectful to each other while using the app and will not use the anonymous feature to bully or troll the chat room. Such posts will be deleted.
 
 \section{Functional Requirements}
 
 \subsection{The Scope of the Work and the Product}
 
+The scope of our software project is to provide cross platform Q and A app. The app will allow users to anonymously post questions. Users will be able to upvote questions they would like to find the answers to and the most popular questions will be showed at the top. To accomplish this we will use a database and a client/server model. Users will also be able to anonymously answer questions. The technology stack we will be using is Google’s Firebase database for the backend and an app to serve the client end. The application should be available for free to all users. Furthermore, the application will need both a device that has a web browser and access to Internet. 
+
 \subsubsection{The Context of the Work}
 
 \subsubsection{Work Partitioning}
 
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|c|c|} \hline
+ \textbf{Event  Name} & \textbf{Input} &  \textbf{Output} \\ \hline
+ Create a database & Google’s Firebase Database & Google’s Firebase  \\\hline
+ Add data to database & Developer Code & Google’s Firebase \\\hline
+ Fetch data from database & Developer Code & Terminal  \\\hline
+ Add functionality to upvote & Developer Code & Terminal  \\\hline
+ Create UI & Developer Code & Web Browser  \\\hline
+ Connect UI with Adding  & & \\
+ and Fetching data from database & Developer Code & Web Browser\\\hline
+\end{tabular}
+\caption{}
+\label{TeamMemberRoles}
+\end{table}
+
 \subsubsection{Individual Product Use Cases}
 
 \subsection{Functional Requirements}
+\textbf{Description:} App should allow users to post questions and answers to chatrooms anonymously \\
+\textbf{Rationale}: This is our primary requirement that also serves as the main functionality of our web app \\
+\textbf{Fit Criterion:} Test if QChat is able to push to database and later pull it back onto the UI \\
+\\
+\textbf{Description:} App should be able to run on all web browsers and devices that have access to Internet \\
+\textbf{Rationale}: We want our app to the accessible across all platforms \\
+\textbf{Fit Criterion:} Check if app runs on Chrome, Mozilla Firefox, Internet Explorer, iOS, Android \\
+\\
+\textbf{Description:} User should be able to connect to different chat rooms by giving a unique ID  \\
+\textbf{Rationale}: Each room will have a unique ID so that user can join and the data (all questions and answers asked by users)  associated with that chat room will remain in that chat room \\
+\textbf{Fit Criterion:} Check if data is associated with specific unique ID and can be 
+accessed only when given that specific ID \\
+\\
+\textbf{Description:} User should be able to upvote questions and answers which will push the questions and answers with most upvotes at the top of the chat \\
+\textbf{Rationale}: This will allow professors to easily answer the question that is common among students \\
+\textbf{Fit Criterion:} Upvote different questions and see if top questions post changes dynamically 
 
 \section{Non-functional Requirements}
 
 \subsection{Look and Feel Requirements}
+Since the final product is going to be a web application, the product should look visually appealing, so that our users find the product usable. It should look professional to gain user’s trust to make them feel like it's reliable.
 
 \subsection{Usability and Humanity Requirements}
 
@@ -148,3 +216,4 @@ Their values are defined in this section for easy maintenance.
 
 
 \end{document}
+
