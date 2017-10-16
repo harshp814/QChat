@@ -55,10 +55,10 @@ template~\citep{RobertsonAndRobertson2012}. Our modification to the template inc
 \section{Project Drivers}
 
 \subsection{The Purpose of the Project}
-The purpose of our project is to allow students who are nervous to ask questions in large lecture rooms to have a voice through an anonymous platform by providing a cross platform Q and A app. The app will allow users to anonymously post questions. Users will be able to upvote questions they would like to find the answers to and the most popular questions will be showed at the top for the professor to answer.
+The purpose of our project is to allow students who are nervous to ask questions in large lecture rooms to have a voice through an anonymous platform by providing a cross platform Q and A (what is Q and A?) app. The app will allow users to anonymously post questions. Users will be able to upvote questions they would like to find the answers to and the most popular questions will be showed at the top for the professor to answer.
 
 \subsection{The Stakeholders}
-
+% just refer to yourselves as QChat Team, or the Team, or Group 14
 The clients for this project are Group 14: QChat and Asghar Bokhari. Professor Bokhari is the client who asked for a project to be done with broad requirements. Group 14: QChat is the client who decided the specific project and provided specifications for the end result. The customers are the students and the professors at McMaster University. Students and Professors will be our customers because this application will directly impact these two entities as it is a tool of communication between them. They will making the choice of using the application on their devices. As our problem is an issue that occurs in the university ecosystem, our stakeholders will be members of this ecosystem. Our stakeholders are students, professors, developers of this project, researchers interested in the outcome of this project. Students will be impacted heavily as they will move to a friendly platform to ask questions to colleagues and/or the professor. As students use this platform to interact in a new way, professors will be impacted heavily as well. Being expected to resolve questions through/from this platform may need them to reform the way they deliver lectures to allocate enough time to review and answer questions from the platform. The developers of this project are required to maintain the application and provide it new features and make it extendable. The developers will need to resolve issues that the application has and may face learning curves to do so. Researchers are also a stakeholder as the application can be potentially used to change the way lectures are delivered. A breakout in a new methodology of learning will result in validation of this method being better by means of collecting data or interviews. 
 
 \subsection{Mandated Constraints}
@@ -70,7 +70,7 @@ The clients for this project are Group 14: QChat and Asghar Bokhari. Professor B
 \textbf{Fit Criterion:} Our app will run on web browser that have JavaScript enabled, if the user has it disabled, it will ask them to turn it on. 
 \\
 \\
-\textbf{Description:} The app will only run when connected to internet
+\textbf{Description:} The app will only run when connected to internet % word this differently, like the application needs a stable internet connection
 \\
 \textbf{Rationale:} The user should be connected to the internet all the time in order to use our app, so that posting and fetching of questions and answer from the database can work
 \\
@@ -92,7 +92,7 @@ For the app to run some of the Off-the-Shelf software that it will use are, a we
   \item The anticipated workspace environment for the app is anywhere, where the user has access to internet and a device that has web browser.
   \item The product will be finished and ready to be released by December 6th, 2017.
   \item The operating budget for our project is \$0 because all the resources need to build this project are available for free, therefore no funding is needed.
-  \item The application should be available for free to all users.
+  \item The application should be available for free to all users. % why is this a constraint?
 \end{itemize}
 
 
@@ -100,12 +100,12 @@ For the app to run some of the Off-the-Shelf software that it will use are, a we
 \subsection{Naming Conventions and Terminology}
 
 
-It is very important to make sure that the code in any code base is clear and conforms to a standard set of rules. This allows for ease in understanding of how the code actually works and communication between different coders. Naming and formatting will be done using regular conventions we learned in 2XA3, all our variables will be named using camel notation, classes will be named with capital.
+It is very important to make sure that the code in any code base is clear and conforms to a standard set of rules. This allows for ease in understanding of how the code actually works and communication between different coders. Naming and formatting will be done using regular conventions we learned in 2XA3 (what course is that???), all our variables will be named using camel notation, classes will be named with capital.
 \\
 \\
 \\
 \textbf{Terminology} \\
-\\
+\\ % move to a table
 \textbf{App/Application/QChat} - the product that is being described here; the software system specified in this document \\
 \textbf{Project} - tasks that will lead to the production of QChat or the application itself. \\
 \textbf{Client} - the person or group of people for which QChat application is being built. \\
@@ -115,14 +115,14 @@ It is very important to make sure that the code in any code base is clear and co
 \textbf{JavaScript} - part of web technology, programming language that runs on browser. \\
 \textbf{Node.js} - server side platform built on Chrome’s JavaScript runtime, perfect for data intensive real-time applications that run across distributed devices. \\
 \textbf{Express.js} - is a web application framework for Node.js. \\
-\textbf{Firebase} - Firebase is google’s free real time database and backend service. We will be using this as our database. \\
+\textbf{Firebase} - Firebase is Google'��s free real time database and backend service. We will be using this as our database. \\
 \textbf{Stakeholders} - any person who is going to be using the system and is not a developer.\\
 
 \subsection{Relevant Facts and Assumptions}
 \textbf{Assumptions}
 \begin{itemize}
     \item Assuming all the users have experience using at least one successful messaging platform like Facebook, Instagram, Twitter, IMessage etc.
-    \item Users will be respectful to each other while using the app and will not use the anonymous feature to bully or troll the chat room. Such posts will be deleted.
+    \item Users will be respectful to each other while using the app and will not use the anonymous feature to bully or troll the chat room. Such posts will be deleted. % provide details on what trolling is
 \end{itemize}
 
 
@@ -188,7 +188,7 @@ The scope of our software project is to provide cross platform Q and A app. The 
 
 \subsection{Functional Requirements}
 
-\textbf{Description:} App should allow users to post questions and answers to chatrooms anonymously 
+\textbf{Description:} App should allow users to post questions and answers to chatrooms anonymously  % be more atomic
 \\
 \textbf{Rationale:} This is our primary requirement that also serves as the main functionality of our web app 
 \\
@@ -199,39 +199,44 @@ The scope of our software project is to provide cross platform Q and A app. The 
 \\
 \textbf{Rationale:} We want our app to the accessible across all platforms 
 \\
-\textbf{Fit Criterion:} Check if app runs on Chrome, Mozilla Firefox, Internet Explorer, iOS, Android 
+\textbf{Fit Criterion:} Check if app runs on Chrome, Mozilla Firefox, Internet Explorer, iOS, Android % is this all browsers / devices though?
 \\
 \\
-\textbf{Description:} User should be able to connect to different chat rooms by giving a unique ID  
+\textbf{Description:} User should be able to connect to different chat rooms by giving a unique ID  % how does user get, or system generate IDs?
 \\
 \textbf{Rationale:} Each room will have a unique ID so that user can join and the data (all questions and answers asked by users)  associated with that chat room will remain in that chat room 
 \\
 \textbf{Fit Criterion:} Check if data is associated with specific unique ID and can be accessed only when given that specific ID 
 \\
 \\
-\textbf{Description:} User should be able to upvote questions and answers which will push the questions and answers with most upvotes at the top of the chat
+\textbf{Description:} User should be able to upvote questions and answers which will push the questions and answers with most upvotes at the top of the chat % be more atomic, does timing play a role in priority?
 \\
 \textbf{Rationale:} This will allow professors to easily answer the question that is common among students 
 \\
-\textbf{Fit Criterion:} Upvote different questions and see if top questions post changes dynamically 
+\textbf{Fit Criterion:} Upvote different questions and see if top questions post changes dynamically % be sure to provide definition when using upvote as a verb
 
 \section{Non-functional Requirements}
 
 \subsection{Look and Feel Requirements}
-Since the final product is going to be a web application, the product should look visually appealing, so that our users find the product usable. It should look professional to gain user’s trust to make them feel like it's reliable.
+Since the final product is going to be a web application, the product should look visually appealing, so that our users find the product usable. It should look professional to gain user’s trust to make them feel like it's reliable. % when is this satisfied?
 
 \subsection{Usability and Humanity Requirements}
-Our web app should have an easy to use interface which is simple and intuitive. It will be easy for our users to understand how to use our app because we will have similar UI and UX as other successful messaging platforms. The app will also provide an ease of access as it will run on an internet browser and will not require the user to download anything. The app will be tested before it is released therefore there will be very minimal to no errors allowing user to have a smooth experience using our app. Meaning one month’s use of the product should result in a error rate of less than 1 percent. 
+Our web app should have an easy to use interface which is simple and intuitive. It will be easy for our users to understand how to use our app because we will have similar UI and UX as other successful messaging platforms. The app will also provide an ease of access as it will run on an internet browser and will not require the user to download anything. The app will be tested before it is released therefore there will be very minimal to no errors allowing user to have a smooth experience using our app. % <- not a usability requirement
+Meaning one month’s use of the product should result in a error rate of less than 1 percent. 
 Our team plan on conducting a quick survey after a month after release to find about the user experience from real users. 
 
-
 \subsection{Performance Requirements}
-QChat is a realtime messaging app because of this a key functionality should be the fact that the app should take less than 3 seconds to load on a web browser. Another performance requirement is there should not be a long lag between posting something to the app and it showing up/updating on all other places. The app will be available for use 24 hours per day, 365 days per year. If the app crashes this should not delete the data, data will be safe. The app should not have any glitches when running on different web browsers. For example any UI glitches. 
+QChat is a realtime messaging app because of this a key functionality should be the fact that the app should take less than 3 seconds to load on a web browser. Another performance requirement is there should not be a long lag between posting something to the app and it showing up/updating on all other places. 
+% below are not performance requirements
+The app will be available for use 24 hours per day, 365 days per year. 
+If the app crashes this should not delete the data, data will be safe. The app should not have any glitches when running on different web browsers. For example any UI glitches.
 
 \subsection{Operational and Environmental Requirements}
+% choose set of browsers and version numbers
 This section describes the physical environment in which our app will run. QChat will operate on any web browser and will need access to the internet. The app might get new features in future but the update should not affect the core functionality of the app and will not cause any previous features to fail. The app should work on all browsers without any glitches and should work on all devices that has access to internet and web browser. The product will be distributed as a website link to all users. 
 
 \subsection{Maintainability and Support Requirements}
+% less about team methods, and software techniques
 Our team will use several techniques to quantify the time necessary to make specified changes to the product. This will include using Gantt chart to create goals and deadlines and using scrum methodology to make sure we’re hitting those targets. After completion of development, the team will test the application on a daily basis and make modifications as required or requested. Users will provide feedback sooner or later and our team will support them by bringing the necessary changes to provide a better experience. 
 
 \subsection{Security Requirements}
