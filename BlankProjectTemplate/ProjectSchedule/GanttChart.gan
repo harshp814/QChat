@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2017-09-27" view-index="0" gantt-divider-location="300" resource-divider-location="300" version="2.8.5" locale="en_CA">
+<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2017-09-24" view-index="0" gantt-divider-location="300" resource-divider-location="300" version="2.8.5" locale="en_CA">
     <description/>
     <view zooming-state="default:2" id="gantt-chart">
         <field id="tpd3" name="Name" width="167" order="0"/>
@@ -45,8 +45,25 @@
             <task id="21" name="Health and Safety concerns" color="#8cb6ce" meeting="false" start="2017-10-05" duration="1" complete="0" expand="true"/>
             <task id="24" name="Review And Submit" color="#8cb6ce" meeting="false" start="2017-10-06" duration="1" complete="0" expand="true"/>
         </task>
-        <task id="22" name="Proof Of Concept Demonstration" color="#8cb6ce" meeting="false" start="2017-10-09" duration="6" complete="0" expand="true"/>
-        <task id="27" name="Test Plan Revision 0" color="#8cb6ce" meeting="false" start="2017-10-17" duration="9" complete="0" expand="true"/>
+        <task id="22" name="Proof Of Concept Demonstration" color="#000000" meeting="false" start="2017-10-09" duration="6" complete="0" expand="true">
+            <task id="79" name="Registering for Firebase" color="#8cb6ce" meeting="false" start="2017-10-09" duration="1" complete="0" expand="true"/>
+            <task id="78" name="Making the Schema" color="#8cb6ce" meeting="false" start="2017-10-09" duration="2" complete="0" expand="true"/>
+            <task id="80" name="Coding" color="#8cb6ce" meeting="false" start="2017-10-11" duration="2" complete="0" expand="true"/>
+            <task id="81" name="Testing functionality" color="#8cb6ce" meeting="false" start="2017-10-13" duration="1" complete="0" expand="true"/>
+            <task id="82" name="Prepare for POC demonstration" color="#8cb6ce" meeting="false" start="2017-10-16" duration="1" complete="0" expand="true"/>
+        </task>
+        <task id="27" name="Test Plan Revision 0" color="#000000" meeting="false" start="2017-10-17" duration="9" complete="0" expand="true">
+            <task id="46" name="Tools to be used" color="#8cb6ce" meeting="false" start="2017-10-17" duration="3" complete="0" expand="true"/>
+            <task id="47" name="Type of tests" color="#8cb6ce" meeting="false" start="2017-10-20" duration="1" complete="0" expand="true"/>
+            <task id="54" name="Plans for unit testing" color="#8cb6ce" meeting="false" start="2017-10-23" duration="3" complete="0" expand="true"/>
+            <task id="48" name="How test will be performed?" color="#8cb6ce" meeting="false" start="2017-10-17" duration="3" complete="0" expand="true"/>
+            <task id="49" name="Plans for automated testing" color="#8cb6ce" meeting="false" start="2017-10-20" duration="2" complete="0" expand="true"/>
+            <task id="52" name="System tests" color="#8cb6ce" meeting="false" start="2017-10-24" duration="2" complete="0" expand="true"/>
+            <task id="53" name="Test for Non-Functional Requirement" color="#8cb6ce" meeting="false" start="2017-10-17" duration="3" complete="0" expand="true"/>
+            <task id="55" name="System test cases" color="#8cb6ce" meeting="false" start="2017-10-20" duration="2" complete="0" expand="true"/>
+            <task id="50" name="Update Gantt Chart" color="#8cb6ce" meeting="false" start="2017-10-24" duration="2" complete="0" expand="true"/>
+            <task id="74" name="Review and Submit" color="#8cb6ce" meeting="false" start="2017-10-26" duration="2" complete="0" expand="true"/>
+        </task>
         <task id="30" name="Design and Document Revision 0" color="#8cb6ce" meeting="false" start="2017-10-30" duration="10" complete="0" expand="true"/>
         <task id="34" name="Revision 0 Demonstration" color="#8cb6ce" meeting="false" start="2017-11-13" duration="5" complete="0" expand="true"/>
         <task id="38" name="Final Demonstration Revision 1" color="#8cb6ce" meeting="false" start="2017-11-20" duration="5" complete="0" expand="true"/>
@@ -62,14 +79,37 @@
         <allocation task-id="2" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
         <allocation task-id="3" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
         <allocation task-id="24" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="46" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="47" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="54" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="74" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="79" resource-id="0" function="Default:0" responsible="true" load="50.0"/>
+        <allocation task-id="78" resource-id="0" function="Default:0" responsible="true" load="50.0"/>
+        <allocation task-id="80" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="81" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="82" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
         <allocation task-id="10" resource-id="1" function="Default:0" responsible="true" load="50.0"/>
         <allocation task-id="11" resource-id="1" function="Default:0" responsible="true" load="50.0"/>
         <allocation task-id="4" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
         <allocation task-id="24" resource-id="1" function="Default:0" responsible="false" load="100.0"/>
+        <allocation task-id="50" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="55" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="53" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="74" resource-id="1" function="Default:0" responsible="false" load="100.0"/>
+        <allocation task-id="78" resource-id="1" function="Default:0" responsible="false" load="100.0"/>
+        <allocation task-id="80" resource-id="1" function="Default:0" responsible="false" load="100.0"/>
+        <allocation task-id="81" resource-id="1" function="Default:0" responsible="false" load="100.0"/>
+        <allocation task-id="82" resource-id="1" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="19" resource-id="2" function="Default:0" responsible="true" load="100.0"/>
         <allocation task-id="5" resource-id="2" function="Default:0" responsible="true" load="100.0"/>
         <allocation task-id="21" resource-id="2" function="Default:0" responsible="true" load="100.0"/>
         <allocation task-id="24" resource-id="2" function="Default:0" responsible="false" load="100.0"/>
+        <allocation task-id="48" resource-id="2" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="74" resource-id="2" function="Default:0" responsible="false" load="100.0"/>
+        <allocation task-id="78" resource-id="2" function="Default:0" responsible="false" load="100.0"/>
+        <allocation task-id="80" resource-id="2" function="Default:0" responsible="false" load="100.0"/>
+        <allocation task-id="81" resource-id="2" function="Default:0" responsible="false" load="100.0"/>
+        <allocation task-id="82" resource-id="2" function="Default:0" responsible="false" load="100.0"/>
     </allocations>
     <vacations/>
     <previous/>
