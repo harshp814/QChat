@@ -14,15 +14,15 @@
 
 \title{SE 3XA3: Test Plan\\Title of Project}
 
-\author{Team \#, Team Name
-		\\ Student 1 name and macid
-		\\ Student 2 name and macid
-		\\ Student 3 name and macid
+\author{Team \#14, QChat
+		\\ Adit Patel - patela14
+		\\ Harsh Patel - patelh11
+		\\ Vrushesh Patel - patelv12
 }
 
-\date{\today}
+\date{October 27, 2017}
 
-\input{../Comments}
+% \input{../Comments}
 
 \begin{document}
 
@@ -33,28 +33,29 @@
 \listoftables
 \listoffigures
 
+
 \begin{table}[bp]
 \caption{\bf Revision History}
 \begin{tabularx}{\textwidth}{p{3cm}p{2cm}X}
 \toprule {\bf Date} & {\bf Version} & {\bf Notes}\\
 \midrule
-Date 1 & 1.0 & Notes\\
-Date 2 & 1.1 & Notes\\
+27/10/2017 & 1.0 & Inital Version\\
 \bottomrule
 \end{tabularx}
 \end{table}
+
 
 \newpage
 
 \pagenumbering{arabic}
 
-This document ...
-
 \section{General Information}
 
 \subsection{Purpose}
+The purpose of this document is to layout Qchat’s Testing Plan. This document details tools being used such as the unit testing framework, types of tests, how testing will be performed and plans for incorporating multiple different types of tests. 
 
 \subsection{Scope}
+Scope of our testing plan will be to check correctness and functionality of our QChat project, it is known that nothing can be fully tested for correctness and so we will need to test robustness and reliability as well. This will ensure that the product is functioning as expected and allows thorough testing before being released. 
 
 \subsection{Acronyms, Abbreviations, and Symbols}
 	
@@ -65,187 +66,391 @@ This document ...
 \toprule
 \textbf{Abbreviation} & \textbf{Definition} \\
 \midrule
-Abbreviation1 & Definition1\\
-Abbreviation2 & Definition2\\
+QChat & Our software name of the project we are building\\
+App/Application & This term refers to the software project the team is building\\
 \bottomrule
 \end{tabularx}
 
 \end{table}
 
-\begin{table}[!htbp]
-\caption{\textbf{Table of Definitions}} \label{Table}
-
-\begin{tabularx}{\textwidth}{p{3cm}X}
-\toprule
-\textbf{Term} & \textbf{Definition}\\
-\midrule
-Term1 & Definition1\\
-Term2 & Definition2\\
-\bottomrule
-\end{tabularx}
-
-\end{table}	
-
 \subsection{Overview of Document}
+
+The QChat project will implement an anonymous Q and A service. The software will allow users to ask and answers questions in class and enhance the student experience. This document will outline how group 14 plan on testing our software and tools we will use. \\
+
+Our software will have a front-end user interface that handles all interactions with the user. Along with the front-end component, we also will have a back-end component which is the database that stores all the data being fed into the system. \\
+
+To test these components we will require the use of Jasmine.js - a unit testing framework for JavaScript. JSLint is a static code analysis tool which is used for checking if JavaScript source code has proper syntax. \\
 
 \section{Plan}
 	
 \subsection{Software Description}
+The QChat project will implement an anonymous Q and A service. The software will allow users to ask and answers questions in class and enhance the student experience. Along with asking and answering, users will be able to upvote and downvote questions to indicate a preference to which one they want answered. 
 
 \subsection{Test Team}
-
-\subsection{Automated Testing Approach}
+The test team will include all the members of group 14 and a few colleagues from 3XA3 lab section 1 to ensure that the testing is verifiable. By allowing multiple people to conduct tests, we can verify that the results were not just specific cases for which the system works.
 
 \subsection{Testing Tools}
+We will be using Jasmine.js for unit testing and JSLint for static code analysis.
+
+\subsection{Automated Testing}
+For our project, the code coverage for unit-testing is about 80 \% which makes it a candidate for automated testing of the units. As far as other automation's go, we are currently in the researching phase, but one possibility we can attempt is writing a script that stores fresh new data in the database, then queries for it and then deletes it on a daily basis. This would help ensure that the back-end is up and running. Automation testing for a system that is heavily based on user interaction is quite hard, as HTML and CSS are not behavioral, only the underlying JavaScript is.\\
+
+Another possibility is UI-Regression testing but that requires learning and time efforts that do not prove to be cost-effective for this project. This is definitely a future possibility when the project is scaled and potentially published. 
 
 \subsection{Testing Schedule}
 		
-See Gantt Chart at the following url ...
+Please click \href{run:../../ProjectSchedule/GanttChart.gan}{here} to open GanttChart.
 
 \section{System Test Description}
 	
 \subsection{Tests for Functional Requirements}
 
-\subsubsection{Area of Testing1}
+\subsubsection{Application running on all devices}
 		
-\paragraph{Title for Test}
+% \paragraph{Application running on all devices}
 
 \begin{enumerate}
 
-\item{test-id1\\}
+\item{Test-F1\\}
 
-Type: Functional, Dynamic, Manual, Static etc.
+Type: Functional, Dynamic, Manual
 					
-Initial State: 
+Initial State: application is available to all users
 					
-Input: 
+Input: application will be accessed on a web browser
 					
-Output: 
+Output: application loads on the web browser
 					
-How test will be performed: 
+How test will be performed: the application will be accessed using the link on all different devices and browsers. The expected output will be tested against the actual output. It is assumed that all the devices will have internet access. 
 					
-\item{test-id2\\}
+\end{enumerate}
 
-Type: Functional, Dynamic, Manual, Static etc.
+\subsubsection{Connect to chat rooms}
+		
+% \paragraph{Connect to chat rooms}
+
+\begin{enumerate}
+
+\item{Test-F2\\}
+
+Type: Functional, Dynamic, Manual
 					
-Initial State: 
+Initial State: Home page
 					
-Input: 
+Input: Chat room id
 					
-Output: 
+Output: Inside the chat room, where all the questions and answers are being asked 
 					
-How test will be performed: 
+How test will be performed: multiple chat rooms will be created each with unique id. Different users from the test group will try to join chat room, they should be able to see question and answers in that specific chat room once they enter the chat id and join. The expected output will be compared against the actual output.
+
+\item{Test-F3\\\\}
+Type: Functional, Dynamic, Manual
+
+Initial State: Home page
+
+Input: Chat room id that does not exists
+
+Output: On home page where chat id is entered to enter a chat room 
+
+How the test will be Performed: chat room id that does not exists will be entered. The expected output will be compared with the actual output. 
 
 \end{enumerate}
 
-\subsubsection{Area of Testing2}
+\subsubsection{Post Questions and Answers to chat room anonymously}
+		
+% \paragraph{Post Questions and Answers to chat room anonymously}
 
-...
+\begin{enumerate}
+
+\item{Test-F4\\}
+
+Type: Functional, Dynamic, Manual
+					
+Initial State: Inside chat room
+					
+Input:  User posts a question through web app on one specific chat room
+					
+Output: All the users connected to that chat room should be able to see that question
+
+How test will be performed: m Have multiple devices and connect multiple users. Ask all user to connect to same chat room. Then one of the user will ask a question, that question should appear on every user’s device. If the expected output does not match the actual output then the test case will be considered failed. 
+					
+\end{enumerate}
+
+\subsubsection{Upvote Questions and Answers}
+		
+% \paragraph{Upvote Questions and Answers}
+
+\begin{enumerate}
+
+\item{Test-F5\\}
+
+Type: Functional, Dynamic, Manual
+	
+Initial State: Inside chat room
+
+Input: User upvotes a question
+
+Output: Number of vote on that question should go up by 1 for each user that upvotes a question. 
+
+How the test will be Performed: 5 users will upvote a question in a chat room, number of votes on that question should go up on all the user’s devices that are in the same chat room to 5. The expected output (of 5 votes on that question) will be compared against the actual output.  
+
+\end{enumerate}
 
 \subsection{Tests for Nonfunctional Requirements}
 
-\subsubsection{Area of Testing1}
+\subsubsection{Look and Feel Requirement }
 		
-\paragraph{Title for Test}
+% \paragraph{Look and Feel Requirement }
 
 \begin{enumerate}
 
-\item{test-id1\\}
+\item{TestNF-1\\}
 
-Type: 
-					
-Initial State: 
-					
-Input/Condition: 
-					
-Output/Result: 
-					
-How test will be performed: 
-					
-\item{test-id2\\}
+Type: Structural, Static, Manual
 
-Type: Functional, Dynamic, Manual, Static etc.
+Initial State: Main Page
 					
-Initial State: 
+Input/Condition: Users in the test group are asked to rate the application on a scale of 0 to 10 where 0 being poor, 6 being above average and 10 being excellent by taking a look at QChat’s UI
 					
-Input: 
+Output/Result: the average rating from the test group and their reviews/notes
+
+How test will be performed: Users in the test group will rate the QChat’s UI on scale of 0 to 10 where 0 being poor, 6 being above average and 10 being excellent. There reivews (notes) about the QChat’s UI will also be recorded. The average of their rating and the similarities in their reviews will be taken to improvise the UI. The average must be 8 or above.  
+
+\item{TestNF-2\\}
+
+Type: Structural, Static, Manual
 					
-Output: 
+Initial State: application is available to all users
 					
-How test will be performed: 
+Input: application will be accessed on a web browser and the browser window will be resized
+					
+Output: application loads on the web browser and on resizing the browser window the application should resize itself till it hits its minimum size. the average rating from the test group
+					
+How test will be performed: users in the test group will access the application on different devices with different sizes and will try to resize the browser window. The users will then rate the application’s responsiveness based on a scale of 0 to 10 where 0 is poor and 10 is excellent. The average must be 9 or above. 
 
 \end{enumerate}
 
-\subsubsection{Area of Testing2}
 
-...
+\subsubsection{Usability and Humanity Requirement}
+
+% \paragraph{Usability and Humanity Requirement}
+
+\begin{enumerate}
+
+\item{TestNF-3\\\\}
+Type: Structural, Static, Manual
+
+Initial State: The look and feel of the application is already tested
+
+Input: Users in the test group are asked to rate the application based on the criteria of ease of access, ease of use, understandability of texts and symbols and overall satisfaction on a scale of 0 to 10  
+
+Output: the average rating from the test group on each category and their review (note)
+
+How the test will be Performed: Each user in the test group will be provided with the questionnaire that provides the list of criteria:- ease of access, ease of use, understandability of texts and symbols and overall satisfaction, each with a scale that goes from 0 to 10 where 0 is poor, 6 is above average and 10 is excellent. The average must be 8 or above.
+\end{enumerate}
+
+\subsubsection{Performance Requirement}
+		
+% \paragraph{Performance Requirement}
+
+\begin{enumerate}
+
+\item{TestNF-4\\}
+
+Type: Structural, Dynamic, Manual
+
+Initial State: Web browser is open and the link is entered
+					
+Input/Condition:  Users in the test group will hit enter (or click search)
+					
+Output/Result: the application should load
+
+
+How test will be performed: the application will be tested on the web browser 10 times. The time elapsed between right after the user has hit enter and the application has loaded completely will be recorded. The average of those 10 recorded times will be taken. The average must be below 3 seconds. 
+
+\item{TestNF-5\\}
+
+Type: Structural, Dynamic, Manual
+					
+Initial State: the application has loaded 
+
+Input: user inputs text in the input field and hits send
+	
+Output: all the users in the test group connected to the same session should be able to see the text entered by one of the user  
+	
+How the test will be Performed: the user in the test group will enter the text in the input field on the application. The time elapsed between right after the user hits send and that text being updated on all the user’s screen that are connected to the same session will be recorded. Same thing will be done 10 times and the average of those 10 recorded times will be taken. The average must be below 2 seconds.    
+
+\end{enumerate}
+
+\subsubsection{Operational and Environmental Requirements}
+
+% \paragraph{Operational and Environmental Requirements}
+
+\begin{enumerate}
+
+\item{TestNF-6\\\\}
+Type: Structural, Static, Manual
+
+Initial State: application is available to all users of the test group
+
+Input: users of the test group will access the application on devices with web browsers
+
+Output: the application will work on all the devices with web browser, meaning it will load and will be usable 
+How the test will be Performed: Each user in the test group will access the application on different devices like cellphones, tablets, laptops, desktops etc. with all different OS like android, IOS, Windows, Linux etc. 
+
+\end{enumerate}
+
+\subsubsection{Maintainability and Support Requirements}
+
+% \paragraph{Maintainability and Support Requirements}
+
+\begin{enumerate}
+
+\item{TestNF-7\\\\}
+Type: Structural, Static, Manual
+
+Initial State: Application is available to all users
+
+Input: Inspecting code and walking through code to make it efficient or to add features
+
+Output: N/A
+
+How the test will be Performed: the testers (team 14) will test to make the code more efficient and to maintain structural integrity of the backend code
+
+\end{enumerate}
+
+\subsubsection{Security Requirements}
+
+% \paragraph{Security Requirements}
+
+\begin{enumerate}
+
+\item{TestNF-7\\\\}
+Type: Structural, Static, Manual
+
+Initial State: Application is available to all users
+
+Input: Inspecting code and walking through code to make it efficient or to add features	
+
+Output: N/A
+
+How the test will be Performed: the testers (team 14) will test to make the code more efficient and to maintain structural integrity of the backend code. 
+
+\end{enumerate}
+
+\subsubsection{Cultural Requirements}
+
+% \paragraph{Cultural Requirements}
+
+\begin{enumerate}
+
+\item{TestNF-9\\\\}
+Type: Structural, Static, Manual
+
+Initial State: Usability and Humanity Requirements are tested
+
+Input: users of the test group will use the application 
+
+Output: the average rating from the test group and their reviews/notes
+
+How the test will be Performed: Each user in the test group will be provided with the questionnaire that provides the list of criteria:- Texts and symbols, and each with a scale that goes from 1 to 5 where 1 is not offensive and 5 being extremely offensive. Their reviews will also be recorded which will help improvise the text and symbols on our application. The average must be 1. 
+
+\end{enumerate}
+
 
 \subsection{Traceability Between Test Cases and Requirements}
+It is really important to be able to trace your test cases with your requirements to ensure your requirements are completely met. Traceability must be maintained across the lifecycle, instead of a traceability matrix, in each of our test cases we have defined which requirement and in which domain of use case it will be tested in. This will allow us to trace our test cases with the requirements and the use case for those requirements.
+
 
 \section{Tests for Proof of Concept}
 
-\subsection{Area of Testing1}
+\subsection{User can input text}
 		
-\paragraph{Title for Test}
+% \paragraph{User can input text}
 
 \begin{enumerate}
 
-\item{test-id1\\}
+\item{TestPOC-1\\}
 
-Type: Functional, Dynamic, Manual, Static etc.
-					
-Initial State: 
-					
-Input: 
-					
-Output: 
-					
-How test will be performed: 
-					
-\item{test-id2\\}
+Type: Functional, Static, Manual
 
-Type: Functional, Dynamic, Manual, Static etc.
-					
-Initial State: 
-					
-Input: 
-					
-Output: 
-					
-How test will be performed: 
+Initial State: Main page
+
+Input: String that lets you enter the chat room
+
+Output: If successful, the page will go to a new screen which represents the chat room they desired to enter
+
+How the test will be Performed: Test user will be asked to input a specific text on screen, as the user types the string, if the letters appear on the screen we know that test passes.
 
 \end{enumerate}
 
-\subsection{Area of Testing2}
+\subsection{Data stored in Firebase Database}
+% \paragraph{Data stored in Firebase Database}
 
-...
+\begin{enumerate}
 
+\item{TestPOC-2\\\\}
+Type: Functional, Static, Manual
+	
+Initial State: Main page
+
+Input: User inputs a question
+
+Output: Question is stored in database
+
+How the test will be Performed: Once the user enters a question (data), it will be stored in Firebase Database and to test if the question (data) was stored we will check Firebase console where the stored data can be seen. 
+\end{enumerate}
 	
 \section{Comparison to Existing Implementation}	
-				
+There are may features of our implementation that will overlap current existing implementations. Posting a question, upvote feature, answering or commenting on a current post will all be similar to the implementation done by the anonymous social media app YikYak. The key difference between the two implementation is QChat is aimed towards being a real time question and answers forum. Second major difference is that instead one massive anonymous chat room for everyone like in YikYak, QChat will have multiple smaller chatrooms the people will enter using specific codes. Each chat room will represent a different group such as a club or a class room.
+
 \section{Unit Testing Plan}
 		
 \subsection{Unit testing of internal functions}
-		
+We will be using Jasmine.js for unit testing as it is a JavaScript Unit Testing Framework.\\
+
+Unit testing for internal functions will include testing for correctness of results by means of assertions on the actions that the javascript methods may make. To elaborate, we will provide it  simulated dependencies and test if the inputs provide the expected output. Jasmine.js also allows testing synchronous and asynchronous JavaScript code which can be advantage for us as we scale the project to a multi-user program. \\
+
+Code coverage is expected to be 80\% of the JavaScript source code our project will have. The 20\% that have been excluded will cover variables and/or methods that only concern the front-end of the program. For example, methods such as show() or hide() which will hide a specific div in the HTML file, does not require unit testing. Simple manual, dynamic testing will suffice. \\
+
+At this point in time, the discussion and analysis required to determine if the project will require stubs and drivers is undecided. A meeting with the stakeholders will help us determine the proper usage and testing capabilities of it. \\
+
 \subsection{Unit testing of output files}		
+Our project will not have any output files and therefore will not require unit testing.
 
-\bibliographystyle{plainnat}
+%\bibliographystyle{plainnat}
 
-\bibliography{SRS}
+%\bibliography{SRS}
 
 \newpage
 
 \section{Appendix}
 
-This is where you can place additional information.
-
 \subsection{Symbolic Parameters}
-
-The definition of the test cases will call for SYMBOLIC\_CONSTANTS.
-Their values are defined in this section for easy maintenance.
+We have not used any symbolic parameters in this document. 
 
 \subsection{Usability Survey Questions?}
 
-This is a section that would be appropriate for some teams.
+\begin{enumerate}
+
+\item{Is the user interface understandable and easy to follow? Rate from 1 to 10 where 1 mean not easy to follow to 10 being very easy to follow.\\}
+
+\item{Were you able to complete the desired tasks quickly using QChat?\\}
+
+\item{Did you run into any unexpected things during your process of using QChat?\\}
+
+\item{Would you recommend QChat to a friend? \\}
+
+\item{If you could change one thing about QChat what would it be and why?\\}
+
+\item{What features could you not live without?\\}
+
+\item{What features do you think are not necessary?\\}
+
+\item{What do you like best about QChat?\\}
+
+\item{How can we improve QChat? Share your ideas and suggestions?\\}
+
+\end{enumerate}
 
 \end{document}
