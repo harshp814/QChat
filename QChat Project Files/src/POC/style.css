@@ -1,0 +1,85 @@
+/*
+Note this code was recycled from the source code provided in this video:
+https://www.youtube.com/watch?v=F6UWb9FNnj4
+
+The original code can be found at: 
+https://www.dropbox.com/sh/tin8n3rr35y1xb6/AABgiiJedP6buJe5e3EydmUfa?dl=0&preview=style.css
+*/
+body {
+    background: #34495e;
+    color: #333;
+    font-size: 14px;
+    font-family: 'Raleway', sans-serif;
+    padding: 20px;
+    maring: 0;
+}
+ 
+* {
+    box-sizing: border-box;
+    font-family: 'Raleway', sans-serif;
+    margin: 0;
+    font-size: 16px;
+    outline: none;
+}
+ 
+input, button {
+    border: 0;
+    padding: 10px;
+    box-shadow: 0 0 20px #333;
+
+}
+ 
+.mainDiv {
+    background: #fff;
+    padding: 20px;
+    width: 700px;
+    margin: 0px auto;
+    margin-top: 50px;
+    margin-bottom: 00px;
+    box-shadow: 0 0 20px #333;
+}
+
+.secondDiv {
+    background: #22313f;
+    color: #fff;
+    padding: 20px;
+    width: 700px;
+    margin: 0px auto;
+    margin-top: 0px;
+    margin-bottom: 50px;
+
+    box-shadow: 0 0 20px #333;
+}
+
+#first{
+    background: #fff;
+}
+
+#text1{
+    background: #fff;
+}
+
+h1 {
+    font-weight: 300;
+    font-size: 24px;
+}
+ 
+textarea {
+    border: 0px;
+    background: #fff;
+    padding: 20px 0px;
+    outline: none;
+    width: 100%;
+    resize: none;
+}
+ 
+button {
+    background: #e74c3c;
+    color: #fff;
+    position: relative;
+    top: 50px;
+    width: 64px;
+    height: 64px;
+    line-height: 38px;
+    border-radius: 100%;
+}
