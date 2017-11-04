@@ -17,7 +17,7 @@ function printValues() {
         questions = snapshot.val();
         var keys = Object.keys(questions);   
         document.getElementById("out").innerHTML = '';
-        for (var i = 0; i < keys.length; i++) {
+        for (var i = keys.length-1; i >= 0; i--) {
             var key = keys[i];
             document.getElementById("out").innerHTML += questions[key] + '<hr>';
         }

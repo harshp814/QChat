@@ -1,28 +1,28 @@
 <!Doctype html>
 <html>
-    <head>
-        <title>QChat Server Side POC</title>
-        <link href="https://fonts.googleapis.com/icon?family=Raleway:300,400,500,700" rel="stylesheet">
-        
-        <script src="https://use.fontawesome.com/939e9dd52c.js"></script>
 
+    <head>
+        <title>QChat</title>
+        <link href="https://fonts.googleapis.com/icon?family=Raleway:300,400,500,700" rel="stylesheet">
+        <script src="https://use.fontawesome.com/939e9dd52c.js"></script>
         <link rel="stylesheet" href="style.css">
     </head>
-    <body>
 
+    <body>
         <div id ="first" class="mainDiv" align="right">
-            <h1 align="left">QChat Server Side POC</h1>
+            <h1 align="left">QChat - Enter chatroom code:</h1>
             <textarea id="text1" placeholder="Please enter your session ID..."></textarea>
-            <button id="submit1" onClick="hide(), show(), printValues()"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+            <button id="submit1" onClick=" show(), printValues()"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
         </div>
 
         <div id="second" class="mainDiv" align="right" hidden>
-            <h1 align="left">QChat Server Side POC</h1>
+            <h1 align="left">Make a post:</h1>
             <textarea #box id="text" placeholder="Please enter your question ..."></textarea>
             <button id="submit" onClick="submitClick(), clearContents()"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
         </div>
 
         <script src="https://www.gstatic.com/firebasejs/4.5.1/firebase.js"></script>
+
         <script>
           // Initialize Firebase
           var config = {

@@ -6,7 +6,7 @@ The original code can be found at:
 https://www.dropbox.com/sh/tin8n3rr35y1xb6/AABgiiJedP6buJe5e3EydmUfa?dl=0&preview=style.css
 */
 body {
-    background: #21252b;
+    background: #fff;
     color: #333;
     font-size: 14px;
     font-family: 'Raleway', sans-serif;
@@ -37,7 +37,7 @@ input, button {
 }
 
 .secondDiv {
-    background: rgb(37, 133, 139);
+    background: #4885ed;
     color: #fff;
     padding: 20px;
     width: 450px;
@@ -47,11 +47,11 @@ input, button {
 }
 
 #first{
-    background: #2f7;
+    background: #f4c20d;
 }
 
 #text1{
-    background: #2f7;
+    background: #f4c20d;
 }
 
 h1 {
