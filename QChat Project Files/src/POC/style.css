@@ -6,11 +6,11 @@ The original code can be found at:
 https://www.dropbox.com/sh/tin8n3rr35y1xb6/AABgiiJedP6buJe5e3EydmUfa?dl=0&preview=style.css
 */
 body {
-    background: #fff;
+    background: #34495e;
     color: #333;
     font-size: 14px;
     font-family: 'Raleway', sans-serif;
-    padding: 0;
+    padding: 20px;
     maring: 0;
 }
  
@@ -25,33 +25,38 @@ body {
 input, button {
     border: 0;
     padding: 10px;
+    box-shadow: 0 0 20px #333;
+
 }
  
 .mainDiv {
     background: #fff;
     padding: 20px;
-    width: 450px;
+    width: 700px;
     margin: 0px auto;
-    margin-top: 100px;
+    margin-top: 50px;
+    margin-bottom: 00px;
     box-shadow: 0 0 20px #333;
 }
 
 .secondDiv {
-    background: #4885ed;
+    background: #22313f;
     color: #fff;
     padding: 20px;
-    width: 450px;
+    width: 700px;
     margin: 0px auto;
-    margin-top: 100px;
+    margin-top: 0px;
+    margin-bottom: 50px;
+
     box-shadow: 0 0 20px #333;
 }
 
 #first{
-    background: #f4c20d;
+    background: #fff;
 }
 
 #text1{
-    background: #f4c20d;
+    background: #fff;
 }
 
 h1 {
@@ -69,7 +74,7 @@ textarea {
 }
  
 button {
-    background: #528bff;
+    background: #e74c3c;
     color: #fff;
     position: relative;
     top: 50px;
