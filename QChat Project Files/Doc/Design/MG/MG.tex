@@ -29,17 +29,17 @@
 \newcommand{\mthemnum}{M\themnum}
 \newcommand{\mref}[1]{M\ref{#1}}
 
-\title{SE 3XA3: Software Requirements Specification\\Title of Project}
+\title{SE 3XA3: Software Requirements Specification\\QChat}
 
-\author{Team \#, Team Name
-		\\ Student 1 name and macid
-		\\ Student 2 name and macid
-		\\ Student 3 name and macid
+\author{Team \#14, QChat
+		\\ Adit Patel - patela14
+		\\ Harsh Patel - patelh11
+		\\ Vrushesh Patel - patelv12
 }
 
-\date{\today}
+\date{November 10, 2017}
 
-\input{../../Comments}
+% \input{../../Comments}
 
 \begin{document}
 
@@ -116,6 +116,26 @@ the completeness of the design against the requirements provided in the SRS. The
 other shows the relation between anticipated changes and the modules. Section
 \ref{SecUse} describes the use relation between modules.
 
+\subsection{Introduction - QChat}
+
+This document indicates the Module Guide for the implementation of the QChat anonymous questions and answers web app. This document is intended to facilitate the design and maintenance of the project while giving and through and clear specifications of the interfacing that occurs between the different modules in the project.\\
+
+One common approach to developing software that is commonly accepted is decomposing the system into modules and then interconnecting them in way that allows for the system to be easily maintained and updated. Any work assignment for a programmer or a programming team is considered to be a module. This module guide will allows for designers and maintainers to easily identify different parts of the software. \\
+ 
+Our system design will follow the following rules:
+\begin{itemize}
+\item Each module will be designed to handle a specific task
+\item System details that are handled independently should be secrets of separate modules, this is where information hiding will be used.
+\item Other programs/modules that require information stored in a certain module’s data must obtain it by calling access programs that belong to that module.
+\end{itemize}
+
+The potential readers of this document are one or more of the following:
+\begin{itemize}
+\item \textbf{New Project Members:} Any new member to the team will be expected to read this document to understand the structure of the project and how the different modules interact to make  the system work. Reading this document will also answer most trivial questions a new member will have regarding the project.
+\item \textbf{Project Maintainers:} The software maintenance team will be expected to read this document as it will give them a good understanding of the hierarchical structure of the modules and how they are prioritized and interconnected. 
+\item \textbf{Project Designers:} Designers can use this document to check for consistency, feasibility and flexibility of the system. Designers can use many techniques to verify the system however they must all match the expected results noted and implied in this document.
+\end{itemize}
+
 \section{Anticipated and Unlikely Changes} \label{SecChange}
 
 This section lists possible changes to the system. According to the likeliness
@@ -132,11 +152,11 @@ adapted here is called design for
 change.
 
 \begin{description}
-\item[\refstepcounter{acnum} \actheacnum \label{acHardware}:] The specific
-  hardware on which the software is running.
-\item[\refstepcounter{acnum} \actheacnum \label{acInput}:] The format of the
-  initial input data.
-\item ...
+\item[\refstepcounter{acnum} \actheacnum \label{acHardware}:] The hardware on which the application is going to run.
+\item[\refstepcounter{acnum} \actheacnum \label{ac2}:] The database used by the application.
+\item[\refstepcounter{acnum} \actheacnum \label{ac3}:] The format of input data (eg. SessionID could be changed to take only numbers).
+\item[\refstepcounter{acnum} \actheacnum \label{ac4}:] The user interface of the application.
+\item[\refstepcounter{acnum} \actheacnum \label{ac5}:] Adding feature to trace the user from their posts while keeping it anonymous (can only be used by authorized person).
 \end{description}
 
 \subsection{Unlikely Changes} \label{SecUchange}
@@ -149,11 +169,11 @@ will potentially need to be modified. Hence, it is not intended that these
 decisions will be changed.
 
 \begin{description}
-\item[\refstepcounter{ucnum} \uctheucnum \label{ucIO}:] Input/Output devices
-  (Input: File and/or Keyboard, Output: File, Memory, and/or Screen).
-\item[\refstepcounter{ucnum} \uctheucnum \label{ucInput}:] There will always be
-  a source of input data external to the software.
-\item ...
+\item[\refstepcounter{ucnum} \uctheucnum \label{ucIO}:] The format of the data stored (eg. JSON).
+\item[\refstepcounter{ucnum} \uctheucnum \label{ucInput}:] The goal of the application: To allow users to ask questions and reply answers anonymously.
+\item[\refstepcounter{ucnum} \uctheucnum \label{ucInput}:] The web technologies used to make QChat.
+\item[\refstepcounter{ucnum} \uctheucnum \label{ucInput}:] The structure of the data stored.
+\item[\refstepcounter{ucnum} \uctheucnum \label{ucInput}:] Firebase configuration data (eg. API key, database URL).
 \end{description}
 
 \section{Module Hierarchy} \label{SecMH}
@@ -165,33 +185,30 @@ actually be implemented.
 
 \begin{description}
 \item [\refstepcounter{mnum} \mthemnum \label{mHH}:] Hardware-Hiding Module
-\item ...
+\item [\refstepcounter{mnum} \mthemnum \label{mDM}:] Data Manipulation Module
+\item [\refstepcounter{mnum} \mthemnum \label{mIF}:] Initializer/Firebase Module
+\item [\refstepcounter{mnum} \mthemnum \label{mUI}:] UI Module
+\item [\refstepcounter{mnum} \mthemnum \label{mCS}:] Client/Server Communication Module
+\item [\refstepcounter{mnum} \mthemnum \label{mIV}:] Input verification Module
 \end{description}
 
 
 \begin{table}[h!]
 \centering
-\begin{tabular}{p{0.3\textwidth} p{0.6\textwidth}}
+\begin{tabular}{p{0.33\textwidth} p{0.33\textwidth} p{0.33\textwidth}}
 \toprule
-\textbf{Level 1} & \textbf{Level 2}\\
+\textbf{Level 1} & \textbf{Level 2} (Model) & \textbf{Level 3} (View/Controller)\\
 \midrule
 
 {Hardware-Hiding Module} & ~ \\
 \midrule
 
-\multirow{7}{0.3\textwidth}{Behaviour-Hiding Module} & ?\\
-& ?\\
-& ?\\
-& ?\\
-& ?\\
-& ?\\
-& ?\\ 
-& ?\\
+\multirow{7}{0.3\textwidth}{Behaviour-Hiding Module} & ~ \\
+& Data Manipulation Module & UI Module \\ & & Client/Server Communication Module \\
 \midrule
 
-\multirow{3}{0.3\textwidth}{Software Decision Module} & {?}\\
-& ?\\
-& ?\\
+\multirow{3}{0.3\textwidth}{Software Decision Module}\\
+& Initializer/Firebase Module & Input verification Module  \\
 \bottomrule
 
 \end{tabular}
@@ -226,11 +243,8 @@ selected.
 \subsection{Hardware Hiding Modules (\mref{mHH})}
 
 \begin{description}
-\item[Secrets:]The data structure and algorithm used to implement the virtual
-  hardware.
-\item[Services:]Serves as a virtual hardware used by the rest of the
-  system. This module provides the interface between the hardware and the
-  software. So, the system can use it to display outputs or to accept inputs.
+\item[Secrets:]Although there isn't any physical hardware involved for our project, the data structures and algorithms used to implement the virtual hardware are the secrets of this module.
+\item[Services:]Serves as virtual hardware used by the rest of the system, this module provides the interface between the hardware and the software which will allow the system to use it to display outputs and accept inputs.
 \item[Implemented By:] OS
 \end{description}
 
@@ -246,16 +260,33 @@ selected.
 \item[Implemented By:] --
 \end{description}
 
-\subsubsection{Input Format Module (\mref{mInput})}
 
+\subsubsection{Data Manipulation Module (\mref{mDM})}
 \begin{description}
-\item[Secrets:]The format and structure of the input data.
-\item[Services:]Converts the input data into the data structure used by the
-  input parameters module.
-\item[Implemented By:] [Your Program Name Here]
+\item[Secrets:]How to manipulate/store/access/update data and where it is placed and accessed.
+\item[Services:]Updates database, fetches data and returns it to the accessing module.
+\item[Implemented By:] -
 \end{description}
 
-\subsubsection{Etc.}
+
+\subsubsection{User Interface Module (\mref{mUI})}
+\begin{description}
+\item[Secrets:]UI features implementation, how it's updated dynamically.
+\item[Services:]Updated UI as user interacts with the different fields available, shows data.
+\item[Implemented By:]Html files, CS files and JavaScript files
+\end{description}
+
+
+\subsubsection{Client/Server Communication Module (\mref{mCS})}
+\begin{description}
+\item[Secrets:]How and where communication occurs
+\item[Services:]Transferring data from other module to database and accessing data from database to use in other modules
+\item[Implemented By:]Index.js file, Firebase
+\end{description}
+
+
+
+
 
 
 \subsection{Software Decision Module}
@@ -271,7 +302,20 @@ selected.
 \item[Implemented By:] --
 \end{description}
 
-\subsubsection{Etc.}
+\subsubsection{Client/Server Communication Module (\mref{mIF})}
+\begin{description}
+\item[Secrets:]Hide the API keys and authentication details.
+\item[Services:]Establish connection with the database Firebase and the Client side.
+\item[Implemented By:]-
+\end{description}
+
+\subsubsection{Client/Server Communication Module (\mref{mIV})}
+\begin{description}
+\item[Secrets:]How inputted data is verified is hidden from other modules.
+\item[Services:]Handles user inputs, checks for correct input semantics before packaging and transferring inputted data to other modules
+\item[Implemented By:]Index.js file, Html files, CS files and JavaScript files, Firebase
+\end{description}
+
 
 \section{Traceability Matrix} \label{SecTM}
 
@@ -282,21 +326,21 @@ requirements and between the modules and the anticipated changes.
 % like fref
 \begin{table}[H]
 \centering
-\begin{tabular}{p{0.2\textwidth} p{0.6\textwidth}}
+\begin{tabular}{p{0.4\textwidth} p{0.6\textwidth}}
 \toprule
 \textbf{Req.} & \textbf{Modules}\\
 \midrule
-R1 & \mref{mHH}, \mref{mInput}, \mref{mParams}, \mref{mControl}\\
-R2 & \mref{mInput}, \mref{mParams}\\
-R3 & \mref{mVerify}\\
-R4 & \mref{mOutput}, \mref{mControl}\\
-R5 & \mref{mOutput}, \mref{mODEs}, \mref{mControl}, \mref{mSeqDS}, \mref{mSolver}, \mref{mPlot}\\
-R6 & \mref{mOutput}, \mref{mODEs}, \mref{mControl}, \mref{mSeqDS}, \mref{mSolver}, \mref{mPlot}\\
-R7 & \mref{mOutput}, \mref{mEnergy}, \mref{mControl}, \mref{mSeqDS}, \mref{mPlot}\\
-R8 & \mref{mOutput}, \mref{mEnergy}, \mref{mControl}, \mref{mSeqDS}, \mref{mPlot}\\
-R9 & \mref{mVerifyOut}\\
-R10 & \mref{mOutput}, \mref{mODEs}, \mref{mControl}\\
-R11 & \mref{mOutput}, \mref{mODEs}, \mref{mEnergy}, \mref{mControl}\\
+Functional - 1 & \mref{mHH}, \mref{mDM}, \mref{mIF}, \mref{mUI}, \mref{mCS}, \mref{mIV} \\
+Functional - 2 & \mref{mHH}, \mref{mDM}, \mref{mIF}, \mref{mUI}, \mref{mCS}, \mref{mIV}\\
+Functional - 3 & \mref{mUI}, \mref{mCS}, \mref{mIV} \\
+Functional - 4 & \mref{mDM}, \mref{mUI}, \mref{mIV}\\
+Non-Functional-3.1 & \mref{mUI}\\
+Non-Functional-3.2 & \mref{mUI}, \mref{mIV}\\
+Non-Functional-3.3 & \mref{mDM}, \mref{mIF}, \mref{mUI}, \mref{mCS}, \mref{mIV}\\
+Non-Functional-3.4 & \mref{mIF}, \mref{mCS}, \mref{mIV}\\
+Non-Functional-3.5 & \mref{mDM}, \mref{mIF}, \mref{mCS}\\
+Non-Functional-3.6 & \mref{mDM}, \mref{mIF}, \mref{mCS}\\
+Non-Functional-3.7 & \mref{mDM}, \mref{mUI}, \mref{mIV}\\
 \bottomrule
 \end{tabular}
 \caption{Trace Between Requirements and Modules}
@@ -310,17 +354,11 @@ R11 & \mref{mOutput}, \mref{mODEs}, \mref{mEnergy}, \mref{mControl}\\
 \textbf{AC} & \textbf{Modules}\\
 \midrule
 \acref{acHardware} & \mref{mHH}\\
-\acref{acInput} & \mref{mInput}\\
-\acref{acParams} & \mref{mParams}\\
-\acref{acVerify} & \mref{mVerify}\\
-\acref{acOutput} & \mref{mOutput}\\
-\acref{acVerifyOut} & \mref{mVerifyOut}\\
-\acref{acODEs} & \mref{mODEs}\\
-\acref{acEnergy} & \mref{mEnergy}\\
-\acref{acControl} & \mref{mControl}\\
-\acref{acSeqDS} & \mref{mSeqDS}\\
-\acref{acSolver} & \mref{mSolver}\\
-\acref{acPlot} & \mref{mPlot}\\
+\acref{ac2} & \mref{mIF}, \mref{mCS}\\
+\acref{ac3} & \mref{mIV}\\
+\acref{ac4} & \mref{mUI}\\
+\acref{ac5} & \mref{mDM}, \mref{mIF}, \mref{mCS}, \mref{mIV}\\
+
 \bottomrule
 \end{tabular}
 \caption{Trace Between Anticipated Changes and Modules}
@@ -329,20 +367,11 @@ R11 & \mref{mOutput}, \mref{mODEs}, \mref{mEnergy}, \mref{mControl}\\
 
 \section{Use Hierarchy Between Modules} \label{SecUse}
 
-In this section, the uses hierarchy between modules is
-provided. \citet{Parnas1978} said of two programs A and B that A {\em uses} B if
-correct execution of B may be necessary for A to complete the task described in
-its specification. That is, A {\em uses} B if there exist situations in which
-the correct functioning of A depends upon the availability of a correct
-implementation of B.  Figure \ref{FigUH} illustrates the use relation between
-the modules. It can be seen that the graph is a directed acyclic graph
-(DAG). Each level of the hierarchy offers a testable and usable subset of the
-system, and modules in the higher level of the hierarchy are essentially simpler
-because they use modules from the lower levels.
+
 
 \begin{figure}[H]
 \centering
-%\includegraphics[width=0.7\textwidth]{UsesHierarchy.png}
+\includegraphics[width=0.5\textwidth]{UsesHierarchy.png}
 \caption{Use hierarchy among modules}
 \label{FigUH}
 \end{figure}
