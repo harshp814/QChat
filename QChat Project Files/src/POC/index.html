@@ -12,14 +12,14 @@
         <div id ="first" class="mainDiv">
             <h1 align="left">QChat - Enter chatroom code:</h1>
             <input align="left" id="text1" placeholder="Please enter your session ID..."></input>
-            <button class="submitbutton" align="right" id="submit1" onClick=" show(), printValues()"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+            <button class="submitbutton" align="right" id="submit1" onClick=" show(), printQuestions()"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
         </div>
         <div id="belowButton"></div>
 
         <div id="second" class="mainDiv" align="right" hidden>
             <h1 align="left">Make a post:</h1>
             <textarea #box id="text" placeholder="Please enter your question ..."></textarea>
-            <button class="submitbutton" id="submit" onClick="submitClick(), clearContents()"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+            <button class="submitbutton" id="submit" onClick="pushQuestion(), clearContents()"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
         </div>
 
         <script src="https://www.gstatic.com/firebasejs/4.5.1/firebase.js"></script>
