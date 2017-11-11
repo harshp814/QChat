@@ -97,7 +97,7 @@ textarea {
     resize: none;
 }
 
-button {
+.submitbutton {
     background: #e74c3c;
     color: #fff;
     position: relative;
