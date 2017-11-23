@@ -1,0 +1,127 @@
+/*
+Note this code was recycled from the source code provided in this video:
+https://www.youtube.com/watch?v=F6UWb9FNnj4
+
+The original code can be found at:
+https://www.dropbox.com/sh/tin8n3rr35y1xb6/AABgiiJedP6buJe5e3EydmUfa?dl=0&preview=style.css
+*/
+body {
+    background: #34495e;
+    color: #333;
+    font-size: 14px;
+    font-family: 'Raleway', sans-serif;
+    padding: 20px;
+    margin: 0;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Raleway', sans-serif;
+    margin: 0;
+    font-size: 16px;
+    outline: none;
+}
+
+button {
+    border: 0;
+    padding: 10px;
+    box-shadow: 0 0 10px #333;
+    float: right;
+}
+button {
+  clear: right;
+}
+
+input {
+  /*border: 1px solid black;*/
+  border: 0;
+  margin: 10px 0px 0px 0px;
+  padding-top: 10px;
+  width: 80%;
+}
+
+.mainDiv {
+    background: #fff;
+    padding: 30px;
+    width: 700px;
+    margin: 0px auto;
+    margin-top: 50px;
+    margin-bottom: 0px;
+    box-shadow: 0 0 20px #333;
+}
+
+#belowButton {
+    background: #22313f;
+    color: #fff;
+    padding: 20px;
+    width: 700px;
+    margin: 0px auto;
+    margin-top: 0px;
+    margin-bottom: 50px;
+    box-shadow: 0 0 20px #333;
+    padding-top: 30px;
+}
+
+#secondDiv {
+    background: #22313f;
+    color: #fff;
+    padding: 20px;
+    width: 700px;
+    margin: 0px auto;
+    margin-top: 0px;
+    margin-bottom: 50px;
+    box-shadow: 0 0 20px #333;
+    padding-top: 40px;
+}
+
+
+#first{
+    background: #fff;
+}
+
+#text1{
+    background: #fff;
+}
+
+h1 {
+    font-weight: 300;
+    font-size: 24px;
+}
+
+h3 {
+    font-weight: 400;
+    font-size: 30px;
+}
+
+textarea {
+    border: 0px;
+    background: #fff;
+    padding: 20px 0px;
+    outline: none;
+    width: 100%;
+    resize: none;
+}
+
+.submitbutton {
+    background: #e74c3c;
+    color: #fff;
+    position: relative;
+    top: 0px;
+    width: 64px;
+    height: 64px;
+    line-height: 38px;
+    border-radius: 100%;
+}
+
+.qCard {
+    background: white;
+    border: 1px solid black;
+    border-radius: 3px;
+    margin: 10px;
+    padding: 20px;
+}
+
+.qCard h1 {
+color: black;
+font-size: 1.3em;
+}
