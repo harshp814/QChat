@@ -122,6 +122,8 @@ textarea {
     height: 64px;
     line-height: 38px;
     border-radius: 100%;
+        float: right;
+
 }
 
 .qCard {
