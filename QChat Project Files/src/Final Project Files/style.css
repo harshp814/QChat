@@ -23,21 +23,11 @@ body {
 }
 
 /*STYLING FOR ALL BUTTONS*/
-buttonLeft {
-    border: ;
-    padding: 10px;
-    box-shadow: 0 0 2px #333;
-    float: left;
+button {
+    padding: 4px;
+    box-shadow: 0 0px 1px #333;
 }
-buttonRight {
-    border: ;
-    padding: 10px;
-    box-shadow: 0 0 2px #333;
-    float: right;
-}
-voteButton{
-    float: right;
-}
+
     
 
 buttons {
@@ -98,6 +88,8 @@ input {
 h1 {
     font-weight: 300;
     font-size: 24px;
+    margin: 7px;
+
 }
 
 
@@ -122,7 +114,7 @@ textarea {
     height: 64px;
     line-height: 38px;
     border-radius: 100%;
-        float: right;
+    float: right;
 
 }
 
@@ -139,9 +131,3 @@ textarea {
     font-size: 1.3em;
 }
 
-
-
-#main {
-    width: 100%;
-    border: 1px dotted black;
-}

@@ -56,23 +56,24 @@ function printQuestions() {
               '<h1 id='+ keyResp +'></h1>' +
               
               '<div>' + 
-                '<input align="left" id="'+ keyInput +'" placeholder="Please enter your answer here" ></input>' +
               
-                '<button align="right" class = "answer" id="submit1" ' + 
-                    'onClick=postAnswer("' + que.key+ '",document.getElementById("' + keyInput +  
-                    '").value)> Submit My Answer </button>' +
+                    '<input align="left" id="'+ keyInput +'" placeholder="Please enter your answer here" ></input>' +
+              
+                    '<div><button align="right" class = "answer" id="submit1" ' + 
+                        'onClick=postAnswer("' + que.key+ '",document.getElementById("' + keyInput +  
+                        '").value)> Submit My Answer </button> </div>' +
               
               '</div>' +
+
+                            
               
-              '' +
+              '<div align="right" >' +
+                    '<button align="right" id="'+ que.key +'" onClick=upVote("' + que.key + '")>  &nbsp +  &nbsp </button>' +
               
+                    '<h1 align="right">'+"Votes: " +que.upvote +'</h1>' +
               
-              
-              '<div><button align="right" id="'+ que.key +'" onClick=upVote("' + que.key + '")>+</button>' +
-              
-              '<h1 align="right">'+"Votes: " +que.upvote +'</h1>' +
-              
-              '<button align="right"eid="'+ que.key +'" onClick=downVote("' + que.key + '")>-</button> </div>' +
+                    '<button align="right" id="'+ que.key +'" onClick=downVote("' + que.key + '")> &nbsp - &nbsp</button>' +
+              '</div>' +
               
 
               
