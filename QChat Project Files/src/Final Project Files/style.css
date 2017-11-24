@@ -22,14 +22,25 @@ body {
     outline: none;
 }
 
-button {
+/*STYLING FOR ALL BUTTONS*/
+buttonLeft {
+    border: ;
+    padding: 10px;
+    box-shadow: 0 0 2px #333;
+    float: left;
+}
+buttonRight {
     border: ;
     padding: 10px;
     box-shadow: 0 0 2px #333;
     float: right;
 }
+voteButton{
+    float: right;
+}
+    
 
-button {
+buttons {
   clear: right;
 }
 
@@ -124,4 +135,11 @@ textarea {
 .qCard h1 {
     color: black;
     font-size: 1.3em;
+}
+
+
+
+#main {
+    width: 100%;
+    border: 1px dotted black;
 }

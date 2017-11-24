@@ -47,42 +47,39 @@ function printQuestions() {
           var keyInput = que.key + "INPUT";
           document.getElementById("out").innerHTML +=
           '<div class="qCard">' +
-              '<h1 id='+ que.key + '>' +
-                  que.question +
-                  '<button align="right" class = "answer" id="submit1"' +
+              '<h1 id='+ que.key + '>' + que.question +'</h1>' +
+              
+              '<button align="right" class = "answer" id="submit1"' +
                       'onClick=showResponses("' + que.key + '"),' +
                       'document.getElementById("'+ keyResp +'").style.display="block";>Show Answers</button>' +
-              '</h1>' +
+              
               '<h1 id='+ keyResp +'></h1>' +
-              '<input align="left" id="'+ keyInput +'" placeholder="Please enter your answer here" ></input>' +
-              '<button id="'+ que.key +'" onClick=upVote("' + que.key + '")>+</button>' +
-              '<h1 align="right">'+ que.upvote +'</h1>' +
-              '<button id="'+ que.key +'" onClick=downVote("' + que.key + '")>-</button>' +
-              '<button align="right" class = "answer" id="submit1" onClick=postAnswer("' + que.key + '",document.getElementById("'+keyInput+'").value)>Submit</button>' +
+              
+              '<div>' + 
+                '<input align="left" id="'+ keyInput +'" placeholder="Please enter your answer here" ></input>' +
+              
+                '<button align="right" class = "answer" id="submit1" ' + 
+                    'onClick=postAnswer("' + que.key+ '",document.getElementById("' + keyInput +  
+                    '").value)> Submit My Answer </button>' +
+              
+              '</div>' +
+              
+              '' +
+              
+              
+              
+              '<div><button align="right" id="'+ que.key +'" onClick=upVote("' + que.key + '")>+</button>' +
+              
+              '<h1 align="right">'+"Votes: " +que.upvote +'</h1>' +
+              
+              '<button align="right"eid="'+ que.key +'" onClick=downVote("' + que.key + '")>-</button> </div>' +
+              
+
+              
           '</div>';
         });
         questions = [];
-        // for (var i = keys.length-1; i >= 0; i--) {
-        //     var key = keys[i];
-        //     var keyResp = key + "RESP";
-        //     var keyInput = key + "INPUT";
-        //
-        //     document.getElementById("out").innerHTML +=
-        //     '<div class="qCard">' +
-        //         '<h1 id='+ key + '>' +
-        //             questions[key]["question"] +
-        //             '<button align="right" class = "answer" id="submit1"' +
-        //                 'onClick=showResponses("' + key + '"),' +
-        //                 'document.getElementById("'+ keyResp +'").style.display="block";>Show Answers</button>' +
-        //         '</h1>' +
-        //         '<h1 id='+ keyResp +'></h1>' +
-        //         '<input align="left" id="'+ keyInput +'" placeholder="Please enter your answer here" ></input>' +
-        //         '<button id="'+ key +'" onClick=upVote("' + key + '")>+</button>' +
-        //         '<h1 align="right">'+ questions[key]["upvote"] +'</h1>' +
-        //         '<button id="'+ key +'" onClick=downVote("' + key + '")>-</button>' +
-        //         '<button align="right" class = "answer" id="submit1" onClick=postAnswer("' + key + '",document.getElementById("'+keyInput+'").value)>Submit</button>' +
-        //     '</div>';
-        // }
+
     }, function (error) {
         console.log("Error: " + error.code);
     });
@@ -101,7 +98,7 @@ function showResponses(id){
         var keys = Object.keys(responses);
         var count = 1;
         for (var i = keys.length-1; i >= 1; i--) {
-            document.getElementById(keyResp).innerHTML += '<br>' + count + '. ' + responses[keys[i]];
+            document.getElementById(keyResp).innerHTML += '<br>' + count + '.' + responses[keys[i]];
             count++;
             //console.log(String(responses[keys[i]]));
         }
