@@ -11,7 +11,7 @@ body {
     font-size: 14px;
     font-family: 'Raleway', sans-serif;
     padding: 20px;
-    margin: 0;
+    maring: 0;
 }
 
 * {
@@ -23,11 +23,12 @@ body {
 }
 
 button {
-    border: 0;
+    border: ;
     padding: 10px;
-    box-shadow: 0 0 10px #333;
+    box-shadow: 0 0 2px #333;
     float: right;
 }
+
 button {
   clear: right;
 }
@@ -35,9 +36,9 @@ button {
 input {
   /*border: 1px solid black;*/
   border: 0;
-  margin: 10px 0px 0px 0px;
+  margin: 10px 0px 10px 0px;
   padding-top: 10px;
-  width: 80%;
+  width: 100%;
 }
 
 .mainDiv {
@@ -88,20 +89,19 @@ h1 {
     font-size: 24px;
 }
 
-h3 {
-    font-weight: 400;
-    font-size: 30px;
-}
 
+/*TEXT AREA FOR MAKE POST*/
 textarea {
     border: 0px;
     background: #fff;
-    padding: 20px 0px;
+    padding: 0px 0px;
     outline: none;
     width: 100%;
     resize: none;
 }
 
+
+/*CIRCLE BUTTONS*/
 .submitbutton {
     background: #e74c3c;
     color: #fff;
@@ -115,13 +115,13 @@ textarea {
 
 .qCard {
     background: white;
-    border: 1px solid black;
-    border-radius: 3px;
+    border: 1px solid white;
+    border-radius: 6px;
     margin: 10px;
-    padding: 20px;
+    padding: 8px;
 }
 
 .qCard h1 {
-color: black;
-font-size: 1.3em;
+    color: black;
+    font-size: 1.3em;
 }
