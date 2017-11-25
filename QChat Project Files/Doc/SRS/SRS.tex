@@ -40,6 +40,8 @@
 \toprule {\bf Date} & {\bf Version} & {\bf Notes}\\
 \midrule
 06/10/2017 & 1.0 & Inital Version\\
+20/11/2017 & 2.0 & Updated mandated constraints and Terminology \\
+22/11/2017 & 3.0 & Fixed and updated Individual Product Use Case and Functional Requirements\\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -63,7 +65,7 @@ The clients for this project are Group 14: QChat and Asghar Bokhari. Professor B
 
 \subsection{Mandated Constraints}
 
-\textbf{Description:} the application should run on web browsers that allow JavaScript to run through a website hosting server.
+\textbf{Description:} The application should run on web browsers that allow JavaScript to run through a website hosting server.
 \\
 \textbf{Rationale:} The client will not be using outdated version of web browser when trying to access our application. 
 \\
@@ -77,7 +79,7 @@ The clients for this project are Group 14: QChat and Asghar Bokhari. Professor B
 \textbf{Fit Criterion:} the app load automatically if the user is connected to the internet, if not any web browser will give error.
 \\
 \\
-\textbf{Description:} The app should resize on its own to fit on all devices with different screen sizes and orientation 
+\textbf{Description:} The app should resize on its own to fit on all devices with different screen sizes and orientation, no elements of the UI should over lap with other elements. 
 \\
 \textbf{Rationale:} The user can resize their browser window and the app will resize itself until it hits its boundary where it cannot get any smaller or bigger
 \\
@@ -113,8 +115,6 @@ It is very important to make sure that the code in any code base is clear and co
 \textbf{Developers} - the team building QChat. \\
 \textbf{Web Technologies} - the method by which computers communicate with each other. \\
 \textbf{JavaScript} - part of web technology, programming language that runs on browser. \\
-\textbf{Node.js} - server side platform built on Chrome’s JavaScript runtime, perfect for data intensive real-time applications that run across distributed devices. \\
-\textbf{Express.js} - is a web application framework for Node.js. \\
 \textbf{Firebase} - Firebase is google’s free real time database and backend service. We will be using this as our database. \\
 \textbf{Stakeholders} - any person who is going to be using the system and is not a developer.\\
 
@@ -178,9 +178,9 @@ The scope of our software project is to provide cross platform Q and A app. The 
 \textbf{Output:} Answer appears next to question in chat room 
 \\
 \\
-\textbf{Product use case:} See top 5 questions in chat room at the current time
+\textbf{Product use case:} See top questions in chat room at the current time
 \\
-\textbf{Actors:} Teacher 
+\textbf{Actors:} Teacher, Student
 \\
 \textbf{Input:} Click on top questions button 
 \\
@@ -209,7 +209,7 @@ The scope of our software project is to provide cross platform Q and A app. The 
 \textbf{Fit Criterion:} Check if data is associated with specific unique ID and can be accessed only when given that specific ID 
 \\
 \\
-\textbf{Description:} User should be able to upvote questions and answers which will push the questions and answers with most upvotes at the top of the chat
+\textbf{Description:} User should be able to upvote and downvote questions which will push the questions and answers with most upvotes at the top of the chat
 \\
 \textbf{Rationale:} This will allow professors to easily answer the question that is common among students 
 \\
