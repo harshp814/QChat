@@ -46,37 +46,37 @@ function printQuestions() {
           var keyResp = que.key + "RESP";
           var keyInput = que.key + "INPUT";
           document.getElementById("out").innerHTML +=
-          '<div class="qCard">' +
+          '<div class="qCard" style="display:flex">' +
+
+          '<div class="leftPart" style="flex:0.8">' +
               '<h1 id='+ que.key + '>' + que.question +'</h1>' +
-              
+
               '<button align="right" class = "answer" id="submit1"' +
                       'onClick=showResponses("' + que.key + '"),' +
                       'document.getElementById("'+ keyResp +'").style.display="block";>Show Answers</button>' +
-              
+
               '<h1 id='+ keyResp +'></h1>' +
-              
-              '<div>' + 
-              
-                    '<input align="left" id="'+ keyInput +'" placeholder="Please enter your answer here" ></input>' +
-              
-                    '<div><button align="right" class = "answer" id="submit1" ' + 
-                        'onClick=postAnswer("' + que.key+ '",document.getElementById("' + keyInput +  
+
+              '<div>' +
+
+                    '<textarea align="left" class="submitAnswer" id="'+ keyInput +'" placeholder="Please enter your answer here"></textarea>' +
+
+                    '<div><button align="right" class = "answer" id="submit1" ' +
+                        'onClick=postAnswer("' + que.key+ '",document.getElementById("' + keyInput +
                         '").value)> Submit My Answer </button> </div>' +
-              
+
               '</div>' +
 
-                            
-              
-              '<div align="right" >' +
+          '</div>'    +
+
+              '<div align="right" style="flex:0.2">' +
                     '<button align="right" id="'+ que.key +'" onClick=upVote("' + que.key + '")>  &nbsp +  &nbsp </button>' +
-              
+
                     '<h1 align="right">'+"Votes: " +que.upvote +'</h1>' +
-              
+
                     '<button align="right" id="'+ que.key +'" onClick=downVote("' + que.key + '")> &nbsp - &nbsp</button>' +
               '</div>' +
-              
 
-              
           '</div>';
         });
         questions = [];
@@ -84,6 +84,26 @@ function printQuestions() {
     }, function (error) {
         console.log("Error: " + error.code);
     });
+}
+
+/**
+* Make sures that the input field for sessionID is not empty.
+*/
+function btn1SessionID() {
+  if(document.getElementById("text1").value !== "") {
+    show();
+    printQuestions();
+  }
+}
+
+/**
+ * Makes sures that user can not submit empty question
+ */
+function btn2Question() {
+  if(document.getElementById("text").value !== "") {
+    pushQuestion();
+    clearContents();
+  }
 }
 
 /**
@@ -143,7 +163,7 @@ function upVote(id){
  * @param {String} id - The id of the element where the vote counter is kept
  */
 function downVote(id){
-     var ref = firebase.database().ref('/' + session.value + '/' + id + '/upvote');
+    var ref = firebase.database().ref('/' + session.value + '/' + id + '/upvote');
     var votes;
     ref.on("value", function (snapshot) {
         votes = snapshot.val();
