@@ -40,7 +40,8 @@
 \toprule {\bf Date} & {\bf Version} & {\bf Notes}\\
 \midrule
 27/10/2017 & 1.0 & Inital Version\\
-23/11/2017 & 1.0 & Updated portions of output testing plan\\
+23/11/2017 & 2.0 & Updated portions of output testing plan\\
+25/11/2017 & 3.0 & Updated Acronyms, Abbrevations, and Symbols and Upvote/Downvote Questions\\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -69,6 +70,9 @@ Scope of our testing plan will be to check correctness and functionality of our 
 \midrule
 QChat & Our software name of the project we are building\\
 App/Application & This term refers to the software project the team is building\\
+Jasmine.js & Testing framework to test JavaScript Code\\
+JSLint & Static code analysis too for JavaScript\\
+
 \bottomrule
 \end{tabularx}
 
@@ -173,11 +177,11 @@ Input:  User posts a question through web app on one specific chat room
 					
 Output: All the users connected to that chat room should be able to see that question
 
-How test will be performed: m Have multiple devices and connect multiple users. Ask all user to connect to same chat room. Then one of the user will ask a question, that question should appear on every user’s device. If the expected output does not match the actual output then the test case will be considered failed. 
+How test will be performed: Have multiple devices and connect multiple users. Ask all user to connect to same chat room. Then one of the user will ask a question, that question should appear on every user’s device. If the expected output does not match the actual output then the test case will be considered failed. 
 					
 \end{enumerate}
 
-\subsubsection{Upvote Questions and Answers}
+\subsubsection{Upvote/Downvote Questions}
 		
 % \paragraph{Upvote Questions and Answers}
 
@@ -189,11 +193,11 @@ Type: Functional, Dynamic, Manual
 	
 Initial State: Inside chat room
 
-Input: User upvotes a question
+Input: User upvotes or downvotes a question
 
-Output: Number of vote on that question should go up by 1 for each user that upvotes a question. 
+Output: Number of vote on that question should go up by 1 for each user that upvotes a question else it goes down if the user downvotes. 
 
-How the test will be Performed: 5 users will upvote a question in a chat room, number of votes on that question should go up on all the user’s devices that are in the same chat room to 5. The expected output (of 5 votes on that question) will be compared against the actual output.  
+How the test will be Performed: 5 users will upvote a question in a chat room, number of votes on that question should go up on all the user’s devices that are in the same chat room to 5. The expected output (of 5 votes on that question) will be compared against the actual output. After testing upvote, downvote will be tested, the number of votes should go down to 0 if 5 users downvotes.  
 
 \end{enumerate}
 
