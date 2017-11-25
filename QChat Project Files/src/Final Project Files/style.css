@@ -28,7 +28,7 @@ button {
     box-shadow: 0 0px 1px #333;
 }
 
-    
+
 
 buttons {
   clear: right;
@@ -115,7 +115,6 @@ textarea {
     line-height: 38px;
     border-radius: 100%;
     float: right;
-
 }
 
 .qCard {
@@ -130,4 +129,3 @@ textarea {
     color: black;
     font-size: 1.3em;
 }
-
