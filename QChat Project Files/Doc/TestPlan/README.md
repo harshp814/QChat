@@ -2,4 +2,6 @@
 
 The folders and files for this folder are as follows:
 
-Describe ...
+TestPlan.pdf - document that describes the test plan for QChat
+TestPlan.tex - LaTex file that generates the pdf
+
