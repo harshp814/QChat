@@ -45,6 +45,10 @@ function printQuestions() {
         questions.forEach(function(que) {
           var keyResp = que.key + "RESP";
           var keyInput = que.key + "INPUT";
+          var count = -1;
+          for (var i in que.responses) {
+            count++;
+          }
           document.getElementById("out").innerHTML +=
           '<div class="qCard" style="display:flex">' +
 
@@ -53,7 +57,7 @@ function printQuestions() {
 
               '<button align="right" class = "answer" id="submit1"' +
                       'onClick=showResponses("' + que.key + '"),' +
-                      'document.getElementById("'+ keyResp +'").style.display="block";>Show Answers</button>' +
+                      'document.getElementById("'+ keyResp +'").style.display="block";>Show Responses: &nbsp&nbsp <b>'+ count +' ans </b> </button>'+
 
               '<h1 id='+ keyResp +'></h1>' +
 
@@ -119,7 +123,7 @@ function showResponses(id){
         var keys = Object.keys(responses);
         var count = 1;
         for (var i = keys.length-1; i >= 1; i--) {
-            document.getElementById(keyResp).innerHTML += '<br>' + count + '.' + responses[keys[i]];
+            document.getElementById(keyResp).innerHTML += '<br>' + count + '. ' + responses[keys[i]];
             count++;
             //console.log(String(responses[keys[i]]));
         }
@@ -132,14 +136,16 @@ function showResponses(id){
  * @param {String} answer - The answer the user wishes to post
  */
 function postAnswer(id, answer){
-    var postRef = firebase.database().ref('/' + session.value + '/' + id);
-    var newPostKey = firebase.database().ref().child('responses').push().key;
+    if(answer !== "") {
+      var postRef = firebase.database().ref('/' + session.value + '/' + id);
+      var newPostKey = firebase.database().ref().child('responses').push().key;
 
-    var newPostKey = firebase.database().ref().child('posts').push().key;
-    var updates = {};
-    updates['/responses/' + newPostKey] = answer;
+      var newPostKey = firebase.database().ref().child('posts').push().key;
+      var updates = {};
+      updates['/responses/' + newPostKey] = answer;
 
-    return firebase.database().ref('/' + session.value + '/' + id).update(updates);
+      return firebase.database().ref('/' + session.value + '/' + id).update(updates);
+    }
 }
 
 /**
