@@ -30,7 +30,7 @@
 //global variables for constant access to HTML elements and data
 var text = document.getElementById("text");
 var session = document.getElementById("text1");
-var questions;
+var questions = [];
 
 /**
  * Posts the user's question to the database in desired format
@@ -44,10 +44,11 @@ function pushQuestion() {
     console.log(pushedRefKey);
     postRef.child(pushedRefKey).set({
         "question" : messageText,
-        "responses" : { 
-            1: "none yet" 
+        "responses" : {
+            1: "none yet"
         },
-        "upvote" : 0, 
+        "upvote" : 0,
+        "key" : pushedRefKey
     });
     printQuestions();
 }
@@ -58,35 +59,87 @@ function pushQuestion() {
 function printQuestions() {
     var ref = firebase.database().ref('/' + session.value);
     ref.on("value", function (snapshot) {
-        questions = snapshot.val();
-        var keys = Object.keys(questions);
-        document.getElementById("out").innerHTML = '';
-        for (var i = keys.length-1; i >= 0; i--) {
-            var key = keys[i];
-            var keyResp = key + "RESP";
-            var keyInput = key + "INPUT";
+        var question = snapshot.val();
+        var keys = Object.keys(question);
 
-            document.getElementById("out").innerHTML += 
-            '&lt;div class="qCard">' +
-                '&lt;h1 id='+ key + '>' +
-                    questions[key]["question"] + 
-                    '&lt;button align="right" class = "answer" id="submit1"' +
-                        'onClick=showResponses("' + key + '"),' +
-                        'document.getElementById("'+ keyResp +'").style.display="block";>Answer&lt;/button>' +
-                '&lt;/h1>' + 
-                '&lt;h1 id="'+ keyResp +'" hidden>&lt;/h1>' + 
-                '&lt;input align="left" id="'+ keyInput +'" placeholder="Please enter your answer here" >' + 
-                '&lt;button align="right" class = "answer" id="submit1" onClick=postAnswer("' + key + '",document.getElementById("'+keyInput+'").value)>Submit&lt;/button>' +
-                '&lt;/input>'
-            '&lt;/div>';
+        for (var i in question) {
+          questions.push(question[i]);
         }
+        questions.sort(function(a, b) {
+          return b.upvote - a.upvote;
+        });
+        document.getElementById("out").innerHTML = '';
+
+        questions.forEach(function(que) {
+          var keyResp = que.key + "RESP";
+          var keyInput = que.key + "INPUT";
+          var count = -1;
+          for (var i in que.responses) {
+            count++;
+          }
+          document.getElementById("out").innerHTML +=
+          '&lt;div class="qCard" style="display:flex">' +
+
+          '&lt;div class="leftPart" style="flex:0.8">' +
+              '&lt;h1 id='+ que.key + '>' + que.question +'&lt;/h1>' +
+
+              '&lt;button align="right" class = "answer" id="submit1"' +
+                      'onClick=showResponses("' + que.key + '"),' +
+                      'document.getElementById("'+ keyResp +'").style.display="block";>Show Responses: &amp;nbsp&amp;nbsp &lt;b>'+ count +' ans &lt;/b> &lt;/button>'+
+
+              '&lt;h1 id='+ keyResp +'>&lt;/h1>' +
+
+              '&lt;div>' +
+
+                    '&lt;textarea align="left" class="submitAnswer" id="'+ keyInput +'" placeholder="Please enter your answer here">&lt;/textarea>' +
+
+                    '&lt;div>&lt;button align="right" class = "answer" id="submit1" ' +
+                        'onClick=postAnswer("' + que.key+ '",document.getElementById("' + keyInput +
+                        '").value)> Submit My Answer &lt;/button> &lt;/div>' +
+
+              '&lt;/div>' +
+
+          '&lt;/div>'    +
+
+              '&lt;div align="right" style="flex:0.2">' +
+                    '&lt;button align="right" id="'+ que.key +'" onClick=upVote("' + que.key + '")>  &amp;nbsp +  &amp;nbsp &lt;/button>' +
+
+                    '&lt;h1 align="right">'+"Votes: " +que.upvote +'&lt;/h1>' +
+
+                    '&lt;button align="right" id="'+ que.key +'" onClick=downVote("' + que.key + '")> &amp;nbsp - &amp;nbsp&lt;/button>' +
+              '&lt;/div>' +
+
+          '&lt;/div>';
+        });
+        questions = [];
+
     }, function (error) {
         console.log("Error: " + error.code);
     });
 }
 
 /**
- * Shows the responses to the specified question. 
+* Make sures that the input field for sessionID is not empty.
+*/
+function btn1SessionID() {
+  if(document.getElementById("text1").value !== "") {
+    show();
+    printQuestions();
+  }
+}
+
+/**
+ * Makes sures that user can not submit empty question
+ */
+function btn2Question() {
+  if(document.getElementById("text").value !== "") {
+    pushQuestion();
+    clearContents();
+  }
+}
+
+/**
+ * Shows the responses to the specified question.
  * @param {String} id - The id of the h1 element where the responses will be printed - the value of the id is the key of the question itself
  */
 function showResponses(id){
@@ -111,14 +164,16 @@ function showResponses(id){
  * @param {String} answer - The answer the user wishes to post
  */
 function postAnswer(id, answer){
-    var postRef = firebase.database().ref('/' + session.value + '/' + id);
-    var newPostKey = firebase.database().ref().child('responses').push().key;
-    
-    var newPostKey = firebase.database().ref().child('posts').push().key;
-    var updates = {};
-    updates['/responses/' + newPostKey] = answer;
-  
-    return firebase.database().ref('/' + session.value + '/' + id).update(updates);
+    if(answer !== "") {
+      var postRef = firebase.database().ref('/' + session.value + '/' + id);
+      var newPostKey = firebase.database().ref().child('responses').push().key;
+
+      var newPostKey = firebase.database().ref().child('posts').push().key;
+      var updates = {};
+      updates['/responses/' + newPostKey] = answer;
+
+      return firebase.database().ref('/' + session.value + '/' + id).update(updates);
+    }
 }
 
 /**
@@ -126,14 +181,30 @@ function postAnswer(id, answer){
  * @param {String} id - The id of the element where the vote counter is kept
  */
 function upVote(id){
-    var postRef = firebase.database().ref('/' + session.value + '/' + id);
-    var newPostKey = firebase.database().ref().child('responses').push().key;
-    console.log(answer);
-    
-    var newPostKey = firebase.database().ref().child('posts').push().key;
+    var ref = firebase.database().ref('/' + session.value + '/' + id + '/upvote');
+    var votes;
+    ref.on("value", function (snapshot) {
+        votes = snapshot.val();
+    });
+    votes++;
     var updates = {};
-    updates['/responses/' + newPostKey] = answer;
-  
+    updates['/upvote'] = votes;
+    return firebase.database().ref('/' + session.value + '/' + id).update(updates);
+}
+
+/**
+ * Increments the upvote counter by 1 for corresponding question
+ * @param {String} id - The id of the element where the vote counter is kept
+ */
+function downVote(id){
+    var ref = firebase.database().ref('/' + session.value + '/' + id + '/upvote');
+    var votes;
+    ref.on("value", function (snapshot) {
+        votes = snapshot.val();
+    });
+    votes--;
+    var updates = {};
+    updates['/upvote'] = votes;
     return firebase.database().ref('/' + session.value + '/' + id).update(updates);
 }
 
@@ -151,7 +222,6 @@ function show() {
 function clearContents() {
     text.value = '';
 }
-
 </code></pre>
         </article>
     </section>
@@ -162,13 +232,13 @@ function clearContents() {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#clearContents">clearContents</a></li><li><a href="global.html#postAnswer">postAnswer</a></li><li><a href="global.html#printQuestions">printQuestions</a></li><li><a href="global.html#pushQuestion">pushQuestion</a></li><li><a href="global.html#show">show</a></li><li><a href="global.html#showResponses">showResponses</a></li><li><a href="global.html#upVote">upVote</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#btn1SessionID">btn1SessionID</a></li><li><a href="global.html#btn2Question">btn2Question</a></li><li><a href="global.html#clearContents">clearContents</a></li><li><a href="global.html#downVote">downVote</a></li><li><a href="global.html#postAnswer">postAnswer</a></li><li><a href="global.html#printQuestions">printQuestions</a></li><li><a href="global.html#pushQuestion">pushQuestion</a></li><li><a href="global.html#show">show</a></li><li><a href="global.html#showResponses">showResponses</a></li><li><a href="global.html#upVote">upVote</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Nov 10 2017 23:37:09 GMT-0500 (EST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Dec 06 2017 18:03:33 GMT-0500 (EST)
 </footer>
 
 <script> prettyPrint(); </script>
